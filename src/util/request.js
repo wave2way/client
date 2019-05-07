@@ -20,7 +20,7 @@ axios.interceptors.response.use(function (response) {
     // Do something with response data
     if (response.status >= 200 && response.status < 300) {
         if (response.data && response.data.code === 0) {
-            message.success('Success');
+            //message.success('Success');
             if (response.data && response.data.token) {
                 localStorage.setItem('user_token', response.data.token);
             }
