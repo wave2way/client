@@ -186,17 +186,9 @@ export default class ArticleList extends Component {
                                         </div>}
                                     description={
                                         <div style={{display: "flex", height: "100px"}}>
-                                            <div style={{width:"70%", height: "auto"}}>
+                                            <div style={{width: Array.isArray(item.images) && item.images.length > 0 ? "70%" : "100%", height: "auto"}}>
                                                 <div style={{textIndent:"2rem", height: "80%"}}>{item.description || "暂无"}</div>
                                                 <div>
-                                                    {/* <span style={{paddingRight:"1rem"}}>
-                                                        <Icon 
-                                                            onClick={this.onClickArticleAction.bind(this, "star-o", item.id, item.collect_status, index)} 
-                                                            type="star-o" 
-                                                            style={{ marginRight: 8, color: item.collect_status >= 0 ? "red" : "" }} 
-                                                        />
-                                                        {item.collect_users_num}
-                                                    </span> */}
                                                     <span style={{paddingRight:"1rem"}}>
                                                         <Icon 
                                                             onClick={this.onClickArticleAction.bind(this, "like-o", item.id, item.like_status, index)} 
@@ -223,7 +215,8 @@ export default class ArticleList extends Component {
                                                     {/* {this.state.commentListStatus.indexOf(index) >= 0 ? <Comment index={index} setCommentNum={this.setCommentNum.bind(this)} object_id={item.id}/> : null} */}
                                                 </div>
                                             </div>
-                                            <div style={{width:"30%"}}>{Array.isArray(item.images) && item.images.length > 0 ? <img width="100%" height="auto" alt="item" src={item.images[0]}/> : null}</div>
+                                            {}
+                                            <div style={{width: Array.isArray(item.images) && item.images.length > 0 ? "30%" : "0px"}}>{Array.isArray(item.images) && item.images.length > 0 ? <img width="100%" height="auto" alt="item" src={item.images[0]}/> : null}</div>
                                         </div>
                                     }
                                 />

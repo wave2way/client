@@ -22,6 +22,7 @@ class UserCenter extends Component {
             tagInputVisible: false,
             categoryVisible: false,
             inputValue: '',
+            images: [],
         }
     }
 
@@ -34,14 +35,9 @@ class UserCenter extends Component {
                 })
             }
         })
-    }
-
-    onClickCreateArticle = () => {
-        this.setState({
-            createArticle: !this.state.createArticle
-        })
         RequestUtil.GET("/article/tags")
         .then(res => {
+            console.log(res)
             if (res.code === 0) {
                 let tags = []
                 res.data.forEach(item => {
@@ -60,6 +56,13 @@ class UserCenter extends Component {
                 this.setState({categories})
             }
         })
+    }
+
+    onClickCreateArticle = () => {
+        this.setState({
+            createArticle: !this.state.createArticle
+        })
+        
     }
 
     onClickCreateArticle = () => {
@@ -164,7 +167,8 @@ class UserCenter extends Component {
             description: this.state.description,
             tags: this.state.selectedTags,
             category: this.state.selectedCategory[0],
-            content: this.state.content
+            content: this.state.content,
+            images: this.state.images,
         })
         .then(res => {
             if (res.code === 0) {
@@ -172,6 +176,12 @@ class UserCenter extends Component {
                     createArticle: false
                 })
             }
+        })
+    }
+
+    setImages = (images) => {
+        this.setState({
+            images
         })
     }
     
@@ -308,7 +318,7 @@ class UserCenter extends Component {
                             <p>正文</p>
                             <div style={{width: "100%"}} dangerouslySetInnerHTML={{__html: this.state.content}} />
                         </Card>
-                        <Editor onContentChange={this.onContentChange}/>
+                        <Editor onContentChange={this.onContentChange} setImages={this.setImages}/>
                         <div style={{display: "flex", justifyContent: "flex-end"}}>
                             <Button onClick={this.submitArticle}>提交</Button>
                         </div>

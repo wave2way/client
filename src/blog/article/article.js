@@ -22,6 +22,14 @@ export default class Article extends Component {
     }
 
     componentDidMount() {
+        const tag = this.props.location && this.props.location.query && this.props.location.query.tag ? this.props.location.query.tag : null
+        if (tag) {
+            let { selectedTags } = this.state
+            selectedTags.push(tag)
+            this.setState({
+                selectedTags
+            })
+        }
         RequestUtil.GET("/article/type", {
             type: "hot",
             limit: 5,

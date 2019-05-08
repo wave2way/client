@@ -11,6 +11,7 @@ export default class Editor extends Component {
     componentDidMount() {
         const elem = this.refs.editorElem
         const editor = new E(elem)
+        const { setImages } = this.props
         // 菜单配置
         editor.customConfig.menus = [
             'bold',  // 粗体
@@ -31,7 +32,21 @@ export default class Editor extends Component {
             })
             this.props.onContentChange(html)
         }
-        editor.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片
+        // 配置服务器端地址
+        editor.customConfig.uploadImgServer = 'http://localhost:5001/upload'
+        editor.customConfig.uploadImgHooks = {
+            success: function (xhr, editor, result) {
+                // 图片上传并返回结果，图片插入成功之后触发
+                // xhr 是 XMLHttpRequst 对象，editor 是编辑器对象，result 是服务器端返回的结果
+                console.log(result.data)
+                if (result.errno === 0) {
+                    setImages(result.data)
+                }
+            },
+        }
+        editor.customConfig.uploadFileName = 'file'
+        editor.customConfig.debug=true;
+        //editor.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片
         editor.create()
     }
     clickHandle() {

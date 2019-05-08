@@ -101,12 +101,9 @@ export default class ArticleDetail extends Component {
                             </Typography>
                             <Card>
                                 <div style={{display: "flex", justifyContent: "center" }}>
-                                    <div style={{width: "50%"}}>
-                                        <img alt="wechat" src={wechat} width="100%" height="auto"/>
-                                    </div>
-                                    <div style={{paddingTop: "10%"}}>
+                                    <div>
+                                        <img alt="wechat" src={wechat}/>
                                         <div>扫描关注微信公众号，第一时间获取博客更新动态</div>
-                                        <div>本文地址<a href="http://localhost:3000/article/5cc418da815000ce4a25c642">http://localhost:3000/article/5cc418da815000ce4a25c642</a></div>
                                     </div>
                                 </div>
                             </Card>

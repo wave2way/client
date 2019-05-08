@@ -24,14 +24,13 @@ export function ListContent(props) {
 
 export function TagContent(props) {
     const { title, data } = props
-    
     return (
         <Card style={{display: "flex"}}>
             <div style={{display: "flex", justifyContent: "space-between"}}>
                 <p>{title}</p>
             </div>
             {data.map((item, index) => {
-                return <Link key={index} to="/article/all"><Tag key={index}>{item.tag}({item.total})</Tag></Link>
+                return <Link key={index} to={{pathname: "/article/all", query:{tag: item.tag}}}><Tag key={index}>{item.tag}({item.total})</Tag></Link>
             })}
         </Card>
     )
