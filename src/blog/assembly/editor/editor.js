@@ -33,7 +33,7 @@ export default class Editor extends Component {
             this.props.onContentChange(html)
         }
         // 配置服务器端地址
-        editor.customConfig.uploadImgServer = 'http://localhost:5001/upload'
+        editor.customConfig.uploadImgServer = '/media/upload'
         editor.customConfig.uploadImgHooks = {
             success: function (xhr, editor, result) {
                 // 图片上传并返回结果，图片插入成功之后触发
