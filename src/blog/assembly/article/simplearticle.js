@@ -34,7 +34,7 @@ export default class SimpleArticleList extends Component {
     }
 
     getData = (callback) => {
-        RequestUtil.GET("/article/type", {
+        RequestUtil.GET("/api/article/type", {
             start: this.state.start,
             limit: this.state.limit,
             user_id: "5cc066bc6fe3ce1e68308481",

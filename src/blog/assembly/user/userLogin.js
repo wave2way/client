@@ -18,7 +18,7 @@ export default class UserLogin extends Component {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                RequestUtil.POST("/user/login", values)
+                RequestUtil.POST("/api/user/login", values)
                 .then(res => {
                 })
                 .catch(err => {

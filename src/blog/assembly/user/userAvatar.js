@@ -17,7 +17,7 @@ export default class UserAvatar extends Component {
     }
 
     getUserInfo = () => {
-        RequestUtil.GET(`/user/info/${this.state.user_id}`)
+        RequestUtil.GET(`/api/user/info/${this.state.user_id}`)
         .then(res => {
             if (res.code === 0) {
                 this.setState({
@@ -50,7 +50,7 @@ export default class UserAvatar extends Component {
                         follow_status = "follow"
                     }
                 }
-                RequestUtil.PUT(`/user/follow/${this.state.userInfo.id}`, {
+                RequestUtil.PUT(`/api/user/follow/${this.state.userInfo.id}`, {
                     option: follow_status
                 })
                 .then(res => {

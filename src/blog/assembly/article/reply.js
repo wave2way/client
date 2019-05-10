@@ -24,7 +24,7 @@ export default class Replies extends Component {
     }
 
     getCommentReplies = (start, comment_id) => {
-        RequestUtil.GET("/community/reply/list", {
+        RequestUtil.GET("/api/community/reply/list", {
             id: comment_id,
             start: start,
             limit: this.state.limit,
@@ -47,7 +47,7 @@ export default class Replies extends Component {
     }
 
     onArticleCommentReplyClick = () => {
-        RequestUtil.POST("/community/create/commentReply", {
+        RequestUtil.POST("/api/community/create/commentReply", {
             comment_user: this.state.comment_user,
             content: this.state.article_comment_reply_content,
             object_id: this.state.comment_id,

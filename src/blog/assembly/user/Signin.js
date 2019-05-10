@@ -76,7 +76,7 @@ export default class UserLogin extends Component {
     }
 
     login = (account, password) => {
-        RequestUtil.POST("/user/login", {
+        RequestUtil.POST("/api/user/login", {
             account: account,
             password: password,
         })

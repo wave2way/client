@@ -20,7 +20,7 @@ export default class ArticleDetail extends Component {
     }
 
     componentDidMount() {
-        RequestUtil.GET("/article/type", {
+        RequestUtil.GET("/api/article/type", {
             start: 1,
             limit: 5,
             type: "same",
@@ -31,13 +31,13 @@ export default class ArticleDetail extends Component {
                 sameArticleData: res.data.data
             })
         })
-        RequestUtil.GET("/article/tags")
+        RequestUtil.GET("/api/article/tags")
         .then(res => {
             this.setState({
                 tagData: res.data
             })
         })
-        RequestUtil.GET(`/article/detail/${this.state.id}`,)
+        RequestUtil.GET(`/api/article/detail/${this.state.id}`,)
         .then(res => {
             if (res.code === 0) {
                 this.setState({
@@ -48,7 +48,7 @@ export default class ArticleDetail extends Component {
     }
 
     onClickLike = () => {
-        RequestUtil.POST(`/community/option/${this.state.id}`, {
+        RequestUtil.POST(`/api/community/option/${this.state.id}`, {
             kind: "article",
             type: "like",
             option: this.state.detailData.like_status >= 0 ? -1 : 1,

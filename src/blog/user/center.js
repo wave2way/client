@@ -27,7 +27,7 @@ class UserCenter extends Component {
     }
 
     componentDidMount() {
-        RequestUtil.GET(`/user/info/${this.props.match.params.id}`)
+        RequestUtil.GET(`/api/user/info/${this.props.match.params.id}`)
         .then(res => {
             if (res.code === 0) {
                 this.setState({
@@ -35,7 +35,7 @@ class UserCenter extends Component {
                 })
             }
         })
-        RequestUtil.GET("/article/tags")
+        RequestUtil.GET("/api/article/tags")
         .then(res => {
             console.log(res)
             if (res.code === 0) {
@@ -46,7 +46,7 @@ class UserCenter extends Component {
                 this.setState({tags})
             }
         })
-        RequestUtil.GET("/article/categories")
+        RequestUtil.GET("/api/article/categories")
         .then(res => {
             if (res.code === 0) {
                 let categories = []
@@ -162,7 +162,7 @@ class UserCenter extends Component {
             message.error('内容必须大于100个字');
             return
         }
-        RequestUtil.POST("/article/create", {
+        RequestUtil.POST("/api/article/create", {
             title: this.state.title,
             description: this.state.description,
             tags: this.state.selectedTags,

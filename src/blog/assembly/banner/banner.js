@@ -16,7 +16,7 @@ export default class Banner extends Component {
     }
 
     getBannerData = () => {
-        RequestUtil.GET("/common/banner/list")
+        RequestUtil.GET("/api/common/banner/list")
         .then(res => {
             if (res.code === 0) {
                 this.setState({

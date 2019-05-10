@@ -27,7 +27,7 @@ export default class UserFollow extends Component {
     }
 
     getFollowedData = (start, kind) => {
-        RequestUtil.GET(`/user/followed/${this.props.match.params.id}`, {
+        RequestUtil.GET(`/api/user/followed/${this.props.match.params.id}`, {
             type: kind,
             start: start,
             limit: this.state.limit,

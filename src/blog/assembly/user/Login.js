@@ -145,7 +145,7 @@ export default class UserLoginOrRegist extends Component {
             if (err) {
                 return;
             }
-            RequestUtil.POST("/user/login", values)
+            RequestUtil.POST("/api/user/login", values)
             .then(res => {
                 if (res.code === 0 && res.token) {
                     localStorage.setItem('user_token', res.token);
@@ -166,7 +166,7 @@ export default class UserLoginOrRegist extends Component {
             if (err) {
                 return;
             }
-            RequestUtil.POST("/user/regist", values)
+            RequestUtil.POST("/api/user/regist", values)
             .then(res => {
                 localStorage.setItem('user_token', res.token);
                 this.handleLoginStatus(true, res.data)

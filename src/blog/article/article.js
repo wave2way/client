@@ -30,7 +30,7 @@ export default class Article extends Component {
                 selectedTags
             })
         }
-        RequestUtil.GET("/article/type", {
+        RequestUtil.GET("/api/article/type", {
             type: "hot",
             limit: 5,
         })
@@ -41,7 +41,7 @@ export default class Article extends Component {
                 })
             }
         })
-        RequestUtil.GET("/article/type", {
+        RequestUtil.GET("/api/article/type", {
             type: "new",
             limit: 5,
         })
@@ -52,7 +52,7 @@ export default class Article extends Component {
                 })
             }
         })
-        RequestUtil.GET("/article/type", {
+        RequestUtil.GET("/api/article/type", {
             type: "recommend",
             limit: 5,
         })
@@ -63,7 +63,7 @@ export default class Article extends Component {
                 })
             }
         })
-        RequestUtil.GET("/article/tags")
+        RequestUtil.GET("/api/article/tags")
         .then(res => {
             if (res.code === 0) {
                 this.setState({

@@ -21,7 +21,7 @@ export default class Home extends Component {
     }
 
     componentDidMount() {
-        RequestUtil.GET("/article/type", {
+        RequestUtil.GET("/api/article/type", {
             type: "new",
             limit: 5,
         })
@@ -32,7 +32,7 @@ export default class Home extends Component {
                 })
             }
         })
-        RequestUtil.GET("/article/type", {
+        RequestUtil.GET("/api/article/type", {
             type: "recommend",
             limit: 5,
         })
@@ -43,7 +43,7 @@ export default class Home extends Component {
                 })
             }
         })
-        RequestUtil.GET("/article/tags")
+        RequestUtil.GET("/api/article/tags")
         .then(res => {
             if (res.code === 0) {
                 this.setState({

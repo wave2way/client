@@ -26,7 +26,7 @@ export default class Comments extends Component {
     }
 
     getComments = (start, article_id) => {
-        RequestUtil.GET("/community/comment/list", {
+        RequestUtil.GET("/api/community/comment/list", {
             kind: "article_comment",
             object_id: article_id,
             start: start,
@@ -50,7 +50,7 @@ export default class Comments extends Component {
     }
 
     onArticleCommentClick = () => {
-        RequestUtil.POST("/community/create/comment", {
+        RequestUtil.POST("/api/community/create/comment", {
             kind: "article_comment",
             content: this.state.article_comment_content,
             object_id: this.state.article_id,
@@ -84,7 +84,7 @@ export default class Comments extends Component {
     }
 
     onClickCommentAction = (id, status, index) => {
-        RequestUtil.POST(`/community/option/${id}`, {
+        RequestUtil.POST(`/api/community/option/${id}`, {
             kind: "comment",
             option: status >= 0 ? -1 : 1
         })

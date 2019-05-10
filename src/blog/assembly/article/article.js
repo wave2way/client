@@ -44,7 +44,7 @@ export default class ArticleList extends Component {
     }
 
     getData = (callback) => {
-        RequestUtil.GET("/article/type", {
+        RequestUtil.GET("/api/article/type", {
             start: this.state.start,
             limit: this.state.limit,
             type: this.state.type,
@@ -81,7 +81,7 @@ export default class ArticleList extends Component {
     }
 
     onAvatarMouseEnter = (id) => {
-        RequestUtil.GET(`/user/info/${id}`)
+        RequestUtil.GET(`/api/user/info/${id}`)
         .then(res => {
             this.setState({
                 userInfo: res.data
@@ -92,7 +92,7 @@ export default class ArticleList extends Component {
     onClickArticleAction = (type, id, status, index) => {
         switch (type) {
             case "like-o": {
-                RequestUtil.POST(`/community/option/${id}`, {
+                RequestUtil.POST(`/api/community/option/${id}`, {
                     kind: "article",
                     type: "like",
                     option: status >= 0 ? -1 : 1
@@ -110,7 +110,7 @@ export default class ArticleList extends Component {
                 break
             }
             case "star-o": {
-                RequestUtil.POST(`/community/option/${id}`, {
+                RequestUtil.POST(`/api/community/option/${id}`, {
                     kind: "article",
                     type: "collect",
                     option: status >= 0 ? -1 : 1

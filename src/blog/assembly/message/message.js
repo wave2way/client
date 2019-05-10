@@ -36,7 +36,7 @@ export default class Message extends Component {
     }
 
     getLeaveMessageList = (start, limit) => {
-        RequestUtil.GET("/leaveMessage/list", {
+        RequestUtil.GET("/api/leaveMessage/list", {
             start: start,
             limit: limit
         })
@@ -57,7 +57,7 @@ export default class Message extends Component {
             submitting: true,
         });
 
-        RequestUtil.POST("/leaveMessage/create/leaveMessage", {
+        RequestUtil.POST("/api/leaveMessage/create/leaveMessage", {
             content: this.state.content,
             create_user_avatar: this.state.messagerAvatar,
             create_user_name: this.state.messagerName,
@@ -85,7 +85,7 @@ export default class Message extends Component {
             submitting: true,
         });
 
-        RequestUtil.POST("/leaveMessage/comment", {
+        RequestUtil.POST("/api/leaveMessage/comment", {
             content: this.state.content,
             create_user_avatar: this.state.messagerAvatar,
             create_user_name: this.state.messagerName,

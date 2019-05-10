@@ -14,7 +14,7 @@ export default class UserInfo extends Component {
     }
 
     componentDidMount() {
-        RequestUtil.GET(`/user/info/${this.state.id}`)
+        RequestUtil.GET(`/api/user/info/${this.state.id}`)
         .then(res => {
             if (res.code === 0) {
                 this.setState({

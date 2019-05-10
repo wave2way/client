@@ -65,7 +65,7 @@ export default class UserInfo extends Component {
     }
 
     getUserMessageList = () => {
-        RequestUtil.GET("/message/list")
+        RequestUtil.GET("/api/message/list")
         .then(res => {
             if (res.code === 0) {
                 this.setState({
@@ -77,7 +77,7 @@ export default class UserInfo extends Component {
     }
 
     getUserInfo = () => {
-        RequestUtil.GET(`/user/info`)
+        RequestUtil.GET(`/api/user/info`)
         .then(res => {
             if (res.code === 0) {
                 this.setState({
@@ -90,7 +90,7 @@ export default class UserInfo extends Component {
     }
 
     handleMessageRead = (value) => {
-        RequestUtil.PUT(`/message/read/${value}`)
+        RequestUtil.PUT(`/api/message/read/${value}`)
         .then(res => {
             if (res.code === 0) {
                 this.getUserMessageList()
@@ -103,7 +103,7 @@ export default class UserInfo extends Component {
     }
 
     onReadAllButtonClick = () => {
-        RequestUtil.PUT("/message/readall")
+        RequestUtil.PUT("/api/message/readall")
         .then(res => {
             if (res.code === 0) {
                 this.getUserMessageList()

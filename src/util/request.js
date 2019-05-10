@@ -37,7 +37,7 @@ axios.interceptors.response.use(function (response) {
 
 // 请求工具
 export default class RequestUtil {
-    static GET(path, data) {
+    static GET(path , data) {
         return new Promise((resolve, reject) => {
             axios.get(path, {
                 params: data
