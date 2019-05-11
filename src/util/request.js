@@ -23,7 +23,9 @@ axios.interceptors.response.use(function (response) {
             if (response.data && response.data.token) {
                 localStorage.setItem('user_token', response.data.token);
             }
-        } else if (response.data && response.data.code > 0) {
+        } else if (response.data && response.data.code >= 4000 && response.data.code < 5000) {
+            message.error("Please Login");
+        } else {
             message.error(response.data && response.data.message ? response.data.message : "Unknow err");
         }
         return response.data;
