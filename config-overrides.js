@@ -1,7 +1,8 @@
-const { override, fixBabelImports, addLessLoader, disableChunk } = require('customize-cra');
+const { override, fixBabelImports, addLessLoader, disableChunk, disableEsLint } = require('customize-cra');
 
 module.exports = override(
   disableChunk(),
+  disableEsLint(),
   fixBabelImports('import', {
     libraryName: 'antd',
      libraryDirectory: 'es',
