@@ -9,7 +9,7 @@ export default class Message extends Component {
         this.state = {
             // 分页
             start: 1,
-            limit: 10,
+            limit: 1000,
             total: 0,
             data: [],
             messagerAvatar: "http://jxhx2.yangqq.com/e/tool/images/tx1.jpg",

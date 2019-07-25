@@ -187,7 +187,7 @@ export default class ArticleList extends Component {
                                     description={
                                         <div style={{display: "flex", height: "100px"}}>
                                             <div style={{width: Array.isArray(item.images) && item.images.length > 0 ? "70%" : "100%", height: "auto"}}>
-                                                <div style={{textIndent:"2rem", height: "80%"}}>{item.description || "暂无"}</div>
+                                                <div style={{textIndent:"2rem", height: "80%", overflow:"scroll"}}>{item.description || "暂无"}</div>
                                                 <div>
                                                     <span style={{paddingRight:"1rem"}}>
                                                         <Icon 
